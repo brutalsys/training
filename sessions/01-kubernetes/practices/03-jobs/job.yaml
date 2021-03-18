@@ -1,0 +1,23 @@
+kind: Job
+apiVersion: batch/v1
+
+metadata:
+  name: pi
+  labels:
+    app.kubernetes.io/instance: pi
+
+spec:
+  backoffLimit: 4
+
+  template:
+    spec:
+      restartPolicy: Never
+
+      containers:
+        - name: default
+          image: perl
+          command:
+            - perl
+            - -Mbignum=bpi
+            - -wle
+            - print bpi(2000)

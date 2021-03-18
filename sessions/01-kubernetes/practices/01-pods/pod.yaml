@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+
+metadata:
+  name: hello
+  labels:
+    app.kubernetes.io/instance: hello
+
+spec:
+  containers:
+    - name: default
+      image: busybox
+      command:
+        - sh
+        - -c
+        - echo "Hello Kubernetes!" && sleep 300
